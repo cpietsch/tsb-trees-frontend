@@ -6,8 +6,8 @@ export function createGeojson(data) {
     type: 'FeatureCollection',
     features: [],
   };
-
-  data.forEach(tree => {
+  for (var i = data.length - 1; i >= 0; i--) {
+    const tree = data[i];
     const feature = {
       type: 'Feature',
       geometry: {
@@ -27,7 +27,7 @@ export function createGeojson(data) {
       },
     };
     geojson.features.push(feature);
-  });
+  }
 
   return geojson;
 }
